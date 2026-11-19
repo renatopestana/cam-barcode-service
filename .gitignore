@@ -1,0 +1,27 @@
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+
+# Arquivos locais de execução / dados sensíveis
+config.json
+produtos.csv
+leituras.csv
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

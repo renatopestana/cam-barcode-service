@@ -1,0 +1,13 @@
+[Unit]
+Description=Cam Barcode Service (Headless EAN-13 Camera Reader)
+After=graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/cam-barcode-service
+ExecStart=%h/cam-barcode-service/.venv/bin/cam-barcode run --config config.json
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

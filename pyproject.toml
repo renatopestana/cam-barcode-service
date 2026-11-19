@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cam-barcode-service"
+version = "1.0.0"
+description = "Serviço headless em Python para leitura de códigos de barras EAN-13 (incluindo etiquetas de balança) via câmera, com saídas plugáveis (Teclado/Keyboard Wedge, Webhook HTTP e CSV)."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Renato Pestana de Abreu", email = "renato.pestana@gmail.com" }
+]
+keywords = ["barcode", "ean13", "opencv", "scanner", "pos", "pdv", "balanca", "keyboard-wedge", "webhook", "headless"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Video :: Capture",
+    "Topic :: Office/Business :: Financial :: Point-Of-Sale",
+]
+
+dependencies = [
+    "opencv-python>=4.8.0",
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+webhook = [
+    "requests>=2.31.0",
+]
+keyboard = [
+    "pyautogui>=0.9.54",
+]
+server = [
+    "fastapi>=0.110.0",
+    "uvicorn>=0.29.0",
+    "pydantic>=2.6.0",
+]
+pyzbar = [
+    "pyzbar>=0.1.9",
+]
+all = [
+    "requests>=2.31.0",
+    "pyautogui>=0.9.54",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.29.0",
+    "pydantic>=2.6.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+    "requests>=2.31.0",
+]
+
+[project.scripts]
+cam-barcode = "cam_barcode_service.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/renatopestana/cam-barcode-service"
+Repository = "https://github.com/renatopestana/cam-barcode-service"
+Issues = "https://github.com/renatopestana/cam-barcode-service/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]

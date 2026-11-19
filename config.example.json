@@ -1,0 +1,37 @@
+{
+  "camera": {
+    "id": 0,
+    "width": 640,
+    "height": 480,
+    "backend": "auto",
+    "skip_frames": 1,
+    "loop_sleep_seconds": 0.03
+  },
+  "parser": {
+    "layout": "plataforma5",
+    "products_csv": null,
+    "only_valid_ean13": true
+  },
+  "cooldown_seconds": 3.0,
+  "outputs": {
+    "console": {
+      "enabled": true
+    },
+    "keyboard": {
+      "enabled": true,
+      "suffix_key": "enter",
+      "interval_seconds": 0.0,
+      "failsafe": true
+    },
+    "webhook": {
+      "enabled": false,
+      "url": "http://127.0.0.1:8000/api/v1/barcode/webhook",
+      "timeout_seconds": 1.5,
+      "headers": {}
+    },
+    "csv_log": {
+      "enabled": false,
+      "path": "leituras.csv"
+    }
+  }
+}
